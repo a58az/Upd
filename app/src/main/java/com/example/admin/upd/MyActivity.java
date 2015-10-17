@@ -50,7 +50,7 @@ public class MyActivity extends Activity {
         long l = pref.getLong(lastModPrefKey, 0);
         lastMod = new Date(l);
 
-        fileName.setText(getText(R.string.fileNameView) + " 3ki.xls");
+        fileName.setText(getText(R.string.fileNameView) + " 4ki.xls");
         lastChange.setText(String.format("%s %s", getText(R.string.fileChangeView), dt.format(new Date(l))));
 
         updButton.setOnClickListener(getLastModify());

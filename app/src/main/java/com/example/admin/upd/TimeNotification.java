@@ -27,8 +27,11 @@ public class TimeNotification extends BroadcastReceiver {
             long temp = intent.getLongExtra(lastModIntentKey, 0);
             Date date = new Date(temp);
 
-            if (last == null) last = date;
-            else last = last.after(date) ? last : date;
+            if (last == null) {
+                last = date;
+            } else {
+                last = last.after(date) ? last : date;
+            }
         } else {
             if (last == null) last = new Date();
         }
@@ -44,7 +47,6 @@ public class TimeNotification extends BroadcastReceiver {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     private void MakeNotification(Context context, Date date) {
         Intent intent = new Intent(context, MyActivity.class);
         PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
